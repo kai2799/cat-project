@@ -96,9 +96,11 @@
           box-shadow: 0 2px 4px rgba(0,0,0,0.2);
       }
       .summary-text {
+          margin-top: 0px;
+          margin-bottom: 5px;
           font-size: 0.9em;
           color: #555;
-          margin-bottom: 15px;
+
       }
        .restart-button {
             background-color: #007aff;
@@ -117,10 +119,10 @@
 
       /* --- Animations --- */
       .swipe-left {
-        animation: swipeLeft 0.5s forwards;
+        animation: swipeLeft 0.65s forwards;
       }
       .swipe-right {
-        animation: swipeRight 0.5s forwards;
+        animation: swipeRight 0.65s forwards;
       }
 
       @keyframes swipeLeft {
@@ -189,6 +191,15 @@
             }
         }
 
+        function preloadNextImage() {
+            if (currentIndex + 1 < catDeck.length) {
+                const nextImageUrl = catDeck[currentIndex + 1];
+
+                const preloadImg = new Image();
+                preloadImg.src = nextImageUrl;
+            }
+        }
+
         // This function sets up the app for a new round.
         function initializeApp() {
             likedCats = [];
@@ -224,6 +235,8 @@
                 catImageElement = newImage;
                 addEventListenersToImage(catImageElement);
                 isAnimating = false;
+
+                preloadNextImage()
             };
 
             newImage.onerror = () => {
@@ -262,7 +275,7 @@
             
             const title = document.createElement('h3');
             title.className = 'summary-title';
-            title.innerHTML = 'Liked &#128150;';
+  
 
             const summaryText = document.createElement('p');
             summaryText.className = 'summary-text';
