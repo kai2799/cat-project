@@ -31,7 +31,7 @@ Experience the Cat Project live on GitHub Pages:
   * **HTML5:** For the basic structure of the web page.
   * **CSS3:** For styling the application, making it visually appealing and responsive.
   * **JavaScript (ES6+):** Powers the core logic, including:
-      * Fetching cat images from [TheCatAPI](https://thecatapi.com/).
+      * Fetching cat images from [TheCatAPI](https://cataas.com/).
       * Handling drag and swipe gestures.
       * Dynamically updating the UI.
 
